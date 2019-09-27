@@ -3,7 +3,7 @@ const admin = require("firebase-admin");
 const functions = require("firebase-functions");
 const express = require("express");
 
-const serviceAccount = require("./graphql-test-f4474-firebase-adminsdk-az4wy-9f11fde5e3.json");
+const serviceAccount = require("./credentials.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
