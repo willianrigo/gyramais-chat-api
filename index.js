@@ -15,9 +15,9 @@ const { ApolloServer, gql } = require("apollo-server-express");
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
   type Message {
-    author: String
-    data: String
-    timestamp: String
+    author: String!
+    data: String!
+    timestamp: String!
   }
   type User{
     name: String
@@ -55,11 +55,12 @@ const resolvers = {
     },
     Mutation: {
       addMessage: (root, args) => {
+        return(
         admin.database().ref('messages/' + args.messageId).set({
           data: args.data,
           author: args.author,
           timestamp : args.timestamp
-        });
+        }))
       }
   }
 }
