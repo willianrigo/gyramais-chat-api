@@ -52,7 +52,6 @@ mutation{
 
 
 Adicionar novo usuário:
-# Write your query or mutation here
 mutation{
  
   addUser(name: "Novo usuario", avatarId: 1, token: "123123"){
