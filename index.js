@@ -31,6 +31,8 @@ const typeDefs = gql`
   type Mutation{
     addMessage(data: String, timestamp: String,
       author: String): Message
+
+    addUser(name: String, avatarId: Int, token: String): User
   }
 `;
 
@@ -61,9 +63,18 @@ const resolvers = {
           author: args.author,
           timestamp : args.timestamp
         }))
+      },
+      addUser: (root, args) => {
+        return(
+        admin.database().ref('users/').push({
+          name: args.name,
+          avatarId: args.avatarId,
+          token : args.token
+        }))
       }
   }
 }
+
 // setup express cloud function
 const app = express();
 const server = new ApolloServer({ typeDefs, resolvers });
