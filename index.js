@@ -16,6 +16,7 @@ const { ApolloServer, gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Message {
     author: String
+    avatarId: Int
     data: String
     timestamp: String
   }
@@ -30,7 +31,7 @@ const typeDefs = gql`
   }
   type Mutation{
     addMessage(data: String, timestamp: String,
-      author: String): Message
+      author: String, avatarId: Int): Message
 
     addUser(name: String, avatarId: Int, token: String): User
   }
@@ -61,6 +62,7 @@ const resolvers = {
         admin.database().ref('messages/').push({
           data: args.data,
           author: args.author,
+          avatarId: args.avatarId,
           timestamp : args.timestamp
         }))
       },
