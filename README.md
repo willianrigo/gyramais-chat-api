@@ -19,7 +19,7 @@ Para fazer o deploy no Functions do Google:
 Se executar o projeto localmente, utilize o endereço [http://localhost:5000/graphql-test-f4474/us-central1/graphql]
 
 ###Exemplos de queries:
-Buscar todas as mensagens e usuários cadastrados:
+#### Buscar todas as mensagens e usuários cadastrados:
 
 {
  
@@ -37,7 +37,7 @@ Buscar todas as mensagens e usuários cadastrados:
 }
 
 
-Adicionar mensagem nova:
+#### Adicionar mensagem nova:
 
 mutation{
  
@@ -51,7 +51,7 @@ mutation{
 }
 
 
-Adicionar novo usuário:
+#### Adicionar novo usuário:
 mutation{
  
   addUser(name: "Novo usuario", avatarId: 1, token: "123123"){
